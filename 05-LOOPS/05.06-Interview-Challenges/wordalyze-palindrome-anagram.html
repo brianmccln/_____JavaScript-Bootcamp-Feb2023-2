@@ -82,10 +82,10 @@
 
         // Brian's solution:
         function wordalyze2(s1, s2="") {
-            if(s2 == "") { // if only one str was passed in, str2 is still ""
+            if(!s2) { // if only one str was passed in, str2 is still ""
                 return s1 == s1.split('').reverse().join('') ? `${s1} is a PALINDROME` : `${s1} is NOT a PALINDROME`;
             } else {  // else str2 is NOT an empty string, so 2 strings were passed in:
-                return s1.split('').sort().join('') ==  s2.split('').sort().join('') ? `${s1} & ${s2} are ANAGRAMS` :`${s1} & ${s2} are NOT ANAGRAMS`;
+                return s1.split('').sort().join('') == s2.split('').sort().join('') ? `${s1} & ${s2} are ANAGRAMS` :`${s1} & ${s2} are NOT ANAGRAMS`;
             }
         }
 
