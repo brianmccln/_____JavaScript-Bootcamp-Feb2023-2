@@ -103,15 +103,12 @@
             } else {
                 // make array of letters from str2:
                 const str2Arr = str2.split('');
-                // sort str1Arr and str2Arr; this alphabetizes the arrays, so if
-                // str1 and str2 are anagrams, the arrays will be identical:
+                // sort str1Arr and str2Arr; this alphabetizes the arrays
+                // if str1 and str2 are anagrams, the arrays will be identical:
                 str1Arr.sort();
                 str2Arr.sort();
-                // join the sorted arrays into strings so they can be compared
-                // if the strings are equal, then str1 and str2 are anagrams:
-                let sortedStr1 = str1Arr.join('');
-                let sortedStr2 = str2Arr.join('');
-                if(sortedStr1 == sortedStr2) {
+                // compare the two arrays;
+                if(str1Arr === str1Arr) {
                     return `${str1.toUpperCase()} and ${str2.toUpperCase()} are ANAGRAMS`;
                 } else {
                     return `${str1.toUpperCase()} and ${str2.toUpperCase()} are NOT ANAGRAMS`;
