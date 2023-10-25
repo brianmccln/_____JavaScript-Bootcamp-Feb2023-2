@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wordalyze: Palindrome, Anagram</title>
+
+</head>
+
+<body>
+
+    <script>
+        // - An ANAGRAM is word whose letters can be rearranged to make another word. 
+        // Example: PEACH and CHEAP are anagrams.
+
+        // - A PALINDROME is a word that is spelled the same forwards and backwards, 
+        // such as KAYAK or RACECAR.
+
+        // Write a function called wordalyze that takes one or two strings as arguments, 
+        // and returns one of four results:
+
+        // 1.) if two strings are passed in, and they are anagrams, it returns a message, 
+        //     like: "PEACH & CHEAP ARE ANAGRAMS"
+
+        // 2.) if two strings are passed in, and they are NOT anagrams, it returns a message, 
+        //     like: APPLE & PEACH ARE NOT ANAGRAMS"
+
+        // 3.) if one string is passed in, and it is a palindrome, it 
+        //     returns a message, like: KAYAK is a PALINDROME
+
+        // 4.) if 1 strings is passed in, and it is NOT a palindrome, it returns a message, 
+        //     like: APPLE is NOT a PALINDROME
+
+        // Assume valid input, that is, assume only strings will be inputted to the function 
+        // and there will either be one or two strings.
+
+        // Yuli's solution:
+        const wordalyze = function(stringA, stringB) {
+            if (arguments.length === 1) {
+               let reversed = '';
+               for (let i = (stringA.length - 1); i >= 0; i--) {
+                 reversed = reversed.concat(stringA[i]);
+               }
+               if (reversed === stringA) {
+                 return `${stringA.toUpperCase()} is a PALINDROME`;
+               } else {
+                 return `${stringA.toUpperCase()} is NOT a PALINDROME`;
+               }
+             }
+        
+            if (arguments.length === 2) {
+                if (stringA.length !== stringB.length) {
+                    return `${stringA.toUpperCase()} & ${stringB.toUpperCase()} ARE NOT ANAGRAMS`;
+                }
+
+                const parsedA = stringA.split('').sort().join('');
+                const parsedB = stringB.split('').sort().join('');
+        
+                if (parsedA === parsedB) {
+                    return `${stringA.toUpperCase()} & ${stringB.toUpperCase()} ARE ANAGRAMS`;
+                } else {
+                    return `${stringA.toUpperCase()} & ${stringB.toUpperCase()} ARE NOT ANAGRAMS`;
+                }
+            }
+        };
+
+        console.log(wordalyze('cat', 'dog')); // NOT anagrams
+        console.log(wordalyze('team', 'mate')); // anagrams
+        console.log(wordalyze('racecar')); // palindrome
+        console.log(wordalyze('bunny')); // NOT palindrome
+        console.log(wordalyze('kayak')); // palindrome
+        console.log(wordalyze('dusty', 'study')); // anagrams
+        console.log(wordalyze('apple', 'grape')); // NOT anagrams
+        console.log(wordalyze('radar')); // palindrome
+        console.log(wordalyze('night', 'thing')); // anagrams
+        console.log(wordalyze('banana')); // NOT palindrome
+        console.log(wordalyze('peach', 'cheap')); // anagrams
+
+        // Brian's solution:
+        function wordalyze2(str1, str2="") {
+
+            // make array of letters from str1:
+            const str1Arr = str1.split('');
+
+            // palindrome check:
+            if(str2 == "") { // if only one str was passed in, str2 is still ""
+                // reverse str1Arr
+                const str1ArrRev = str1Arr.reverse();
+                // join str1ArrRev into a string, which will be str1 backwards:
+                let str2Rev = str1ArrRev.join('');
+                // compare if str1 equals itself, backwards:
+                if(str1 == str2Rev) {
+                    return `${str1.toUpperCase()} is a PALINDROME`;
+                } else {
+                    return `${str1.toUpperCase()} is NOT a PALINDROME`;
+                }
+            // anagram check:
+            // else str2 is NOT an empty string, so 2 strings were passed in:
+            } else {
+                // make array of letters from str2:
+                const str2Arr = str2.split('');
+                // sort str1Arr and str2Arr; this alphabetizes the arrays, so if
+                // str1 and str2 are anagrams, the arrays will be identical:
+                str1Arr.sort();
+                str2Arr.sort();
+                // join the sorted arrays into strings so they can be compared
+                // if the strings are equal, then str1 and str2 are anagrams:
+                let sortedStr1 = str1Arr.join('');
+                let sortedStr2 = str2Arr.join('');
+                if(sortedStr1 == sortedStr2) {
+                    return `${str1.toUpperCase()} and ${str2.toUpperCase()} are ANAGRAMS`;
+                } else {
+                    return `${str1.toUpperCase()} and ${str2.toUpperCase()} are NOT ANAGRAMS`;
+                }
+            }
+        }
+
+        console.log(wordalyze2('cat', 'dog')); // NOT anagrams
+        console.log(wordalyze2('team', 'mate')); // anagrams
+        console.log(wordalyze2('racecar')); // palindrome
+        console.log(wordalyze2('bunny')); // NOT palindrome
+        console.log(wordalyze2('kayak')); // palindrome
+        console.log(wordalyze2('dusty', 'study')); // anagrams
+        console.log(wordalyze2('apple', 'grape')); // NOT anagrams
+        console.log(wordalyze2('radar')); // palindrome
+        console.log(wordalyze2('night', 'thing')); // anagrams
+        console.log(wordalyze2('banana')); // NOT palindrome
+        console.log(wordalyze2('peach', 'cheap')); // anagrams
+
+    </script>
+
+</body>
+
+</html>
