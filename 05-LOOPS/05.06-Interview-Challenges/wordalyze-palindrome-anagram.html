@@ -81,21 +81,21 @@
         console.log(wordalyze('peach', 'cheap')); // anagrams
 
         // Brian's solution:
-        function wordalyze2(str1, str2="") {
+        function wordalyze2(s1, s2="") {
             // make array of letters from str1:
-            const str1Arr = str1.split('');
+            const s1Arr = s1.split('');
             // palindrome check:
-            if(str2 == "") { // if only one str was passed in, str2 is still ""
+            if(s2 == "") { // if only one str was passed in, str2 is still ""
                 // if str1Arr equals itself, backwards, it's a palindrome:
-                return str1Arr == str1Arr.reverse() ? `${str1} is a PALINDROME` : `${str1} is NOT a PALINDROME`;
+                return s1Arr == s1Arr.reverse() ? `${s1} is a PALINDROME` : `${s1} is NOT a PALINDROME`;
             // anagram check:
             } else {  // else str2 is NOT an empty string, so 2 strings were passed in:
                 // make array of letters from str2:
-                const str2Arr = str2.split('');
+                const s2Arr = s2.split('');
                 // if str1 and str2 are anagrams, their sorted arrays will be identical:
-                str1Arr.sort();
-                str2Arr.sort();
-                return str1Arr == str1Arr ? `${str1} and ${str2} are ANAGRAMS` :`${str1} and ${str2} are NOT ANAGRAMS`;
+                s1Arr.sort();
+                s2Arr.sort();
+                return s1Arr == s1Arr ? `${s1} & ${s2} are ANAGRAMS` :`${s1} & ${s2} are NOT ANAGRAMS`;
             }
         }
 
