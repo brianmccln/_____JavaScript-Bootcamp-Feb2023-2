@@ -87,11 +87,7 @@
             // palindrome check:
             if(str2 == "") { // if only one str was passed in, str2 is still ""
                 // if str1Arr equals itself, backwards, it's a palindrome:
-                if(str1Arr === str1Arr.reverse()) {
-                    return `${str1.toUpperCase()} is a PALINDROME`;
-                } else {
-                    return `${str1.toUpperCase()} is NOT a PALINDROME`;
-                }
+                return str1Arr == str1Arr.reverse() ? `${str1} is a PALINDROME` : `${str1} is NOT a PALINDROME`;
             // anagram check:
             } else {  // else str2 is NOT an empty string, so 2 strings were passed in:
                 // make array of letters from str2:
@@ -99,11 +95,7 @@
                 // if str1 and str2 are anagrams, their sorted arrays will be identical:
                 str1Arr.sort();
                 str2Arr.sort();
-                if(str1Arr === str1Arr) {
-                    return `${str1.toUpperCase()} and ${str2.toUpperCase()} are ANAGRAMS`;
-                } else {
-                    return `${str1.toUpperCase()} and ${str2.toUpperCase()} are NOT ANAGRAMS`;
-                }
+                return str1Arr == str1Arr ? `${str1} and ${str2} are ANAGRAMS` :`${str1} and ${str2} are NOT ANAGRAMS`;
             }
         }
 
