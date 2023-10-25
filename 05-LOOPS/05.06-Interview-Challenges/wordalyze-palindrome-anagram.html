@@ -85,11 +85,11 @@
             const s1Arr = s1.split(''); // make array of letters from s1:
             // palindrome check:
             if(s2 == "") { // if only one str was passed in, str2 is still ""
-                return s1Arr == s1Arr.reverse() ? `${s1} is a PALINDROME` : `${s1} is NOT a PALINDROME`;
+                return s1 == s1Arr.reverse().join('') ? `${s1} is a PALINDROME` : `${s1} is NOT a PALINDROME`;
             // anagram check:
             } else {  // else str2 is NOT an empty string, so 2 strings were passed in:
                 const s2Arr = s2.split(''); // make array of letters from s2:
-                return s1Arr.sort() == s1Arr.sort() ? `${s1} & ${s2} are ANAGRAMS` :`${s1} & ${s2} are NOT ANAGRAMS`;
+                return s1Arr.sort().join('') == s2Arr.sort().join('') ? `${s1} & ${s2} are ANAGRAMS` :`${s1} & ${s2} are NOT ANAGRAMS`;
             }
         }
 
@@ -104,6 +104,10 @@
         console.log(wordalyze2('night', 'thing')); // anagrams
         console.log(wordalyze2('banana')); // NOT palindrome
         console.log(wordalyze2('peach', 'cheap')); // anagrams
+
+        const fruits1 = ['apple', 'banana', 'cherry'];
+        const fruits2 = ['apple', 'banana', 'cherry'];
+        console.log('fruits1 == fruits2:', fruits1 == fruits2);
 
     </script>
 
