@@ -82,32 +82,23 @@
 
         // Brian's solution:
         function wordalyze2(str1, str2="") {
-
             // make array of letters from str1:
             const str1Arr = str1.split('');
-
             // palindrome check:
             if(str2 == "") { // if only one str was passed in, str2 is still ""
-                // reverse str1Arr
-                const str1ArrRev = str1Arr.reverse();
-                // join str1ArrRev into a string, which will be str1 backwards:
-                let str2Rev = str1ArrRev.join('');
-                // compare if str1 equals itself, backwards:
-                if(str1 == str2Rev) {
+                // if str1Arr equals itself, backwards, it's a palindrome:
+                if(str1Arr === str1Arr.reverse()) {
                     return `${str1.toUpperCase()} is a PALINDROME`;
                 } else {
                     return `${str1.toUpperCase()} is NOT a PALINDROME`;
                 }
             // anagram check:
-            // else str2 is NOT an empty string, so 2 strings were passed in:
-            } else {
+            } else {  // else str2 is NOT an empty string, so 2 strings were passed in:
                 // make array of letters from str2:
                 const str2Arr = str2.split('');
-                // sort str1Arr and str2Arr; this alphabetizes the arrays
-                // if str1 and str2 are anagrams, the arrays will be identical:
+                // if str1 and str2 are anagrams, their sorted arrays will be identical:
                 str1Arr.sort();
                 str2Arr.sort();
-                // compare the two arrays;
                 if(str1Arr === str1Arr) {
                     return `${str1.toUpperCase()} and ${str2.toUpperCase()} are ANAGRAMS`;
                 } else {
