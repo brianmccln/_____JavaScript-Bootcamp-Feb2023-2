@@ -123,11 +123,10 @@
 
         // Brian's solution
         function addNums(arr) {
-            const tot = arr.reduce((acc,item) => {
+            return arr.reduce((acc,item) => {
                 if(Number(item)) acc += Number(item);
                 return acc;
             }, 0);
-            return tot;
         }
 
         const total = addNums(mixedBag);
