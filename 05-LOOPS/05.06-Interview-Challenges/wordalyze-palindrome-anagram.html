@@ -123,7 +123,9 @@
 
         // Brian's solution
         function addNums(arr) {
-            return arr.reduce((acc,e) => Number(e) ? acc += Number(e) : acc, 0);
+            // return arr.reduce((acc,e) => Number(e) ? acc += Number(e) : acc, 0);
+            // or better: isNaN(e) instead of Number(e) -- thanks Yuli!
+            return arr.reduce((acc,e) => isNaN(e) ? acc : acc += Number(e), 0);
         }
 
         console.log(addNums(mixedBag));
