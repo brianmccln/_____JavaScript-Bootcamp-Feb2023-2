@@ -110,8 +110,9 @@
         // Expected answer: 584.9
         // CAUTION: attempting to do math with fruits will result in an answer of NaN.
 
-        const sum = arr => arr.reduce((acc,e) => isNaN(e) ? acc : acc += Number(e), 0);
-    
+        // const sum = arr => arr.reduce((acc,e) => isNaN(e) ? acc : acc += Number(e), 0);
+        const sum = a => a.reduce((s,e) => isNaN(e) ? s : s += Number(e), 0);
+
         console.log(sum(mixedBag));
 
     </script>
