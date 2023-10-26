@@ -110,25 +110,9 @@
         // Expected answer: 584.9
         // CAUTION: attempting to do math with fruits will result in an answer of NaN.
 
-        // Yuli's solution
-        const sum = function(array) {
-            const mixedNumberArray = array.filter(item => !isNaN(item)) //to get an array of numbers and stringy numbers
-            const numberArray = mixedNumberArray.map(num => Number(num)) //change stringy numbers into numbers
-            const sum = numberArray.reduce((acc, current) => acc + current) //get the sum
-            return Math.round( sum * 100 ) / 100; //get to one decimal
-        }
-
-        const result = sum(mixedBag)
-        console.log('result:', result);
-
-        // Brian's solution
-        function addNums(arr) {
-            // return arr.reduce((acc,e) => Number(e) ? acc += Number(e) : acc, 0);
-            // or better: isNaN(e) instead of Number(e) -- thanks Yuli!
-            return arr.reduce((acc,e) => isNaN(e) ? acc : acc += Number(e), 0);
-        }
-
-        console.log(addNums(mixedBag));
+        const sum = arr => arr.reduce((acc,e) => isNaN(e) ? acc : acc += Number(e), 0);
+    
+        console.log(sum(mixedBag));
 
     </script>
 
