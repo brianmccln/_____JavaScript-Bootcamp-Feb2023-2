@@ -116,8 +116,41 @@
 
         // just for fun: as short as possible:
         let sum = a => a.reduce((s,e) => isNaN(e) ? s : s += Number(e), 0)
+
+        // without initial value/data type for acc, you get concatenation:
+        let str = a => a.reduce((s,e) => isNaN(e) ? s : s += Number(e), 0);
+        console.log(str);
         
         console.log(sum(mixedBag));
+        
+        // Given an array of fruits:
+        const fruits = ['apple', 'banana', 'cherry', 'grape', 'kiwi', 'lemon', 'lime', 
+        'mango', 'orange', 'peach', 'plum', 'pineapple', 'strawberry', 'watermelon'];
+        
+        // MAKE jellybeans of just the 5-letter fruits. Expected result:
+        // ['apple jellybean', 'grape jellybean', 'lemon jellybean', 'mango jellybean', 'peach jellybean']
+
+        // reduce() compared to map() + filter()
+        // Make 5-letter fruit jellybeans w filter() and map()
+        const fivers = fruits.filter(e => e.length == 5);
+        const jbeans = fivers.map(e => e + ' jellybean');
+        console.log(jbeans);
+        
+        // Same as above, but with filter().map() chaining, all in one line:
+        const fiverJbeans = fruits.filter(e => e.length == 5) .map(e => e + ' jellybean');
+        console.log(fiverJbeans);
+
+        // Same as above, but with reduce().
+        // Declare the data type of the acc as array: []
+        
+        const fiverJbeansReduced = fruits.reduce((arr, e) => {
+            if(e.length == 5) {
+               arr.push(e + ' jellybeans');
+            }
+            return arr;
+        }, []);
+
+        console.log(fiverJbeansReduced);
 
     </script>
 
